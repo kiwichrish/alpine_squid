@@ -27,6 +27,15 @@ docker run -d --restart always -v /var/cache/squid:/squid -p3128:3128 kiwichrish
 docker run -d --restart always -v /opt/docker/alpine_squid/etc/squid:/etc/squid -v /var/cache/squid:/squid -p3128:3128 kiwichrish/alpine_squid
 </pre>
 
+## Logging
+
+In the same way as you can pick up non default settings by mapping a volume, if you add a volume /var/log/squid you'll get the raw squid logs.
+
+Add a volume option to your run command per:
+<pre>
+-v /var/log/squid:/var/log/squid
+</pre>
+
 # docker-compose
 
 This will get you started using this with docker-compose:
@@ -40,9 +49,7 @@ services:
     volumes:
       - "/var/cache/squid:/squid"
       - "/opt/docker/alpine_squid/etc/squid:/etc/squid"
+      - "/var/log/squid:/var/log/squid"
     restart: always
 </pre>
 
-# Issues:
-Permissions on the /var/cache/squid folder:
-If you think that's going to be an issue check the permissions after the first run and change the ownership / permissions on the folder to be the same as the sub-folders it creates.

@@ -7,7 +7,8 @@ SQUID=$(/usr/bin/which squid)
 
 # Set permissions correctly on the Squid cache when it's loaded as a volume
 echo "=========== fixing cache dir permissions"
-"$CHOWN" -R squid:squid /var/cache/squid
+"$CHOWN" -R squid:squid /squid
+"$CHOWN" -R squid:squid /var/log/squid
 
 echo "=========== Check config location"
 FILE=/etc/squid/squid.conf

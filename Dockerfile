@@ -1,4 +1,4 @@
-# Squid container, for testing stuff.
+# Squid container
 # Chris H <chris@trash.co.nz>
 
 FROM alpine:latest
@@ -14,5 +14,6 @@ ADD startup.sh /startup.sh
 
 VOLUME /squid
 VOLUME /etc/squid
+VOLUME /var/log/squid
 
 ENTRYPOINT ["/startup.sh"]
