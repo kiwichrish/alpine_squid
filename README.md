@@ -30,7 +30,7 @@ docker run -d --restart always -v /opt/docker/alpine_squid/etc/squid:/etc/squid 
 # docker-compose
 
 This will get you started using this with docker-compose:
-<code>
+<pre>
 version: '3'
 services:
   squid:
@@ -41,7 +41,7 @@ services:
       - "/var/cache/squid:/squid"
       - "/opt/docker/alpine_squid/etc/squid:/etc/squid"
     restart: always
-</code>
+</pre>
 
 # Issues:
 Permissions on the /var/cache/squid folder:
