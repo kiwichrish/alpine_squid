@@ -13,12 +13,14 @@ Settings are per the defaults for alpine squid:
 * Allow traffic on common ports and all unregistered ports (443, 80, 21, 70, 210, 280, 488, 591, 777, 1025-65535)
 * Only allow https on port 443
 
+Additionally the following changes are in the container:
+* logformat set to 'combined' which is more human readable
+
+
 To override settings, attach a volume at /etc/squid and on first run the image will copy the squid settings it's using to the folder.  Shut down the container, edit the settings per taste and restart.
 
 # Usage:
 <pre>
-mkdir /var/cache/squid
-chmod 777 /var/cache/squid
 docker run -d --restart always -v /var/cache/squid:/squid -p3128:3128 kiwichrish/alpine_squid
 </pre>
 

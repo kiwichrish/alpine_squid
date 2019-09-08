@@ -1,11 +1,11 @@
 #!/bin/ash
-
 set -e
 
+# find chown and squid, just in case
 CHOWN=$(/usr/bin/which chown)
 SQUID=$(/usr/bin/which squid)
 
-# Set permissions correctly on the Squid cache when it's loaded as a volume
+# Set permissions correctly on the Squid cache and log when loaded as a volumes
 echo "=========== fixing cache dir permissions"
 "$CHOWN" -R squid:squid /squid
 "$CHOWN" -R squid:squid /var/log/squid
