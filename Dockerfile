@@ -12,6 +12,9 @@ RUN apk add --update --no-cache squid \
 ADD squid.conf /etc/squid.dist/squid.conf
 ADD startup.sh /startup.sh
 
+# Simple health Check
+HEALTHCHECK CMD netstat -an | grep 3128 > /dev/null; if [ 0 != $? ]; then exit 1; fi;
+
 VOLUME /squid
 VOLUME /etc/squid
 VOLUME /var/log/squid
