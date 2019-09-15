@@ -5,7 +5,7 @@ FROM alpine:latest
 
 EXPOSE 3128/tcp
 
-RUN apk add --update --no-cache squid \
+RUN apk add --update --no-cache squid tzdata \
     && mkdir /etc/squid.dist \
     && mv /etc/squid/* /etc/squid.dist/
 
