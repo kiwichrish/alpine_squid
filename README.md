@@ -55,3 +55,8 @@ services:
     restart: always
 </pre>
 
+# Scripts
+There are two self explanatory scripts with this repo that are not part of the container..
+
+* build.sh - Builds the container, edit to taste for the tag.
+* push.sh  - pushes the container to dockerhub.  Edit that one to taste as well.
