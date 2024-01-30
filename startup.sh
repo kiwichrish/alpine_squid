@@ -19,6 +19,13 @@ else
     cp /etc/squid.dist/* /etc/squid
 fi
 
+# Checking for PID file..  
+# Had an issue with squid.pid being pre-existing if container was restarted sometimes.  Odd.
+if [ -f "/var/run/squid.pid" ]; then
+    echo "============ PID file exists, clearing before starting squid"
+    rm /var/run/squid.pid
+fi
+
 # Prepare the cache using Squid.
 echo "=========== Initialize cache"
 "$SQUID" -z
